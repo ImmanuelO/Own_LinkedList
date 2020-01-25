@@ -4,24 +4,29 @@ using std::unique_ptr;
 using std::make_unique;
 
 namespace ImanList {
-	
-	template<typename T>
+
+	template<class T>
 	struct Node
 	{
 		T data;
-		unique_ptr<Node> next = make_unique<Node>();
+		unique_ptr < Node<T>> next;
 	};
-	
-	template<typename T>
+
+	template<class T>
 	class LinkedList
 	{
-		public:
-			LinkedList();
-			append(T addToEndOfList);
-			insert(T dataLessThan);
-			remove(T removeFromList);
+	public:
+		LinkedList(){};
+		LinkedList(LinkedList&& list);
+		LinkedList(const LinkedList&) = delete;
 		
-		private:
-			unique_ptr<Node> head;
+		void append(T addtoendoflist);
+		void insert(T datalessthan);
+		void remove(T removeFromList);
+		void print() const;
+	private:
+		unique_ptr<Node<T>> head;
+
+		unique_ptr<Node<T>> addDataToNewNode(T& data);
 	};
 }

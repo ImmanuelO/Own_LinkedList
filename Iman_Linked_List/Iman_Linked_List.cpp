@@ -3,19 +3,64 @@
 
 #include "pch.h"
 #include <iostream>
+#include <memory>
+#include <string>
+#include "LinkedList.h"
+#include "LinkedList.cpp"
+
+using namespace ImanList;
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	//ImanList::LinkedList<std::string> practiceAppending;
+
+	//practiceAppending.append("Jennifer");
+	//practiceAppending.append("Immanuel");
+
+
+	ImanList::LinkedList<int> practiceInserting;
+	
+	practiceInserting.insert(4); //4
+	practiceInserting.insert(2); //2,4
+	practiceInserting.remove(2); //4
+	practiceInserting.insert(3); //3,4 
+	practiceInserting.remove(4); //3
+	practiceInserting.append(5); 
+	practiceInserting.append(5); //3,5, 5
+
+	LinkedList<int> movePracticeInserting{ move(practiceInserting )};
+
+	practiceInserting.insert(2);
+	practiceInserting.insert(2);
+	practiceInserting.insert(3);
+	practiceInserting.insert(6);
+	practiceInserting.insert(1); //1,2,3,6
+	movePracticeInserting.insert(2);
+	//movePracticeInserting.remove(2);
+	practiceInserting.print();
+	cout << endl;
+	movePracticeInserting.print();
+
+
+	//unique_ptr<int> iman{ make_unique<int>(5) };
+	//unique_ptr<int> jennifer{ make_unique<int>(3) };
+	//unique_ptr<int> Temp{ make_unique<int>()};
+	//int* ptr;
+
+
+	//ptr = iman.get();
+
+
+	//std::cout << " Unique value: " << *iman << std::endl;
+	//std::cout << " Ptr value: " << *ptr << " Ptr address: "
+	//	      << ptr << std::endl;
+
+	//Temp = move(iman);
+	//iman = move(jennifer);
+
+	//std::cout << " Unique value: " << *iman << std::endl;
+	//std::cout << " Ptr value: " << *ptr << " Ptr address: "
+	//		  << ptr << std::endl;
+
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

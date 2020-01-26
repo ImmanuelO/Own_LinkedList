@@ -91,6 +91,27 @@ void ImanList::LinkedList<T>::remove(T removeFromList)
 }
 
 template<class T>
+void ImanList::LinkedList<T>::reverse()
+{
+
+	unique_ptr<Node<T>> currentNode{move(head)};
+	unique_ptr<Node<T>> nextNode{ nullptr };
+	unique_ptr<Node<T>> previousNode{ nullptr };
+
+	while (currentNode != nullptr)
+	{
+		nextNode = move(currentNode->next);
+		currentNode->next = move(previousNode);
+		previousNode = move(currentNode);
+		currentNode = move(nextNode);
+	}
+	
+	head = move(previousNode);
+
+
+}
+
+template<class T>
 void ImanList::LinkedList<T>::print() const
 {
 	Node<T>* listIter;
@@ -110,3 +131,4 @@ unique_ptr<ImanList::Node<T>> ImanList::LinkedList<T>::addDataToNewNode(T& data)
 	newNode->data = data;
 	return newNode;
 }
+ 

@@ -23,7 +23,9 @@ namespace ImanList {
 		void append(T addtoendoflist);
 		void insert(T datalessthan);
 		void remove(T removeFromList);
+		void reverse();
 		void print() const;
+
 	private:
 		unique_ptr<Node<T>> head;
 

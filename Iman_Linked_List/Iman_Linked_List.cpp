@@ -25,8 +25,12 @@ int main()
 	practiceInserting.remove(2); //4
 	practiceInserting.insert(3); //3,4 
 	practiceInserting.remove(4); //3
-	practiceInserting.append(5); 
-	practiceInserting.append(5); //3,5, 5
+	practiceInserting.append(5); //3,5,
+	practiceInserting.print();
+	practiceInserting.reverse();
+	cout << endl;
+	practiceInserting.print();
+	cout << endl;
 
 	LinkedList<int> movePracticeInserting{ move(practiceInserting )};
 
@@ -36,7 +40,9 @@ int main()
 	practiceInserting.insert(6);
 	practiceInserting.insert(1); //1,2,3,6
 	movePracticeInserting.insert(2);
-	//movePracticeInserting.remove(2);
+	practiceInserting.print();
+	practiceInserting.reverse();
+	cout << endl;
 	practiceInserting.print();
 	cout << endl;
 	movePracticeInserting.print();
